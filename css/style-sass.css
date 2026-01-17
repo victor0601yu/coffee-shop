@@ -240,7 +240,7 @@ a {
   width: 100%;
   padding-top: 60%;
 }
-@media (max-width: 767) {
+@media (max-width: 767px) {
   .jumbotron .image-container:before {
     padding-top: 80%;
   }
