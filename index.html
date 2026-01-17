@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/791de7bc7b.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="assets/vender/fontawesome-free-7.1.0-web/css/all.min.css"> -->
+    <script src="https://kit.fontawesome.com/791de7bc7b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/vender/normalize.css">
     <link rel="stylesheet" href="assets/vender/bootstrap-5.3.8/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style-sass.css">
@@ -16,20 +16,25 @@
 
     <!-- Start header -->
     <header class="header">
-        <nav class="navbar">
-            <a href="#!" class="navbar-brand brand">
-                <div class="icon"></div>
-                <h1 class="brand-name">The Daily Grind</h1>
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#!" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#!" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#!" class="nav-link">Menu</a></li>
-                <li class="nav-item"><a href="#!" class="nav-link">Visit</a></li>
-                <li class="nav-item"><a href="#!" class="nav-link">Contact</a></li>
-                <a href="#!" class="btn btn-1">Order Online</a>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#!" class="brand">
+                    <div class="icon"></div>
+                    <h1 class="brand-name">The Daily Grind</h1>
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#!" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#!" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#!" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="#!" class="nav-link">Visit</a></li>
+                    <li class="nav-item"><a href="#!" class="nav-link">Contact</a></li>
+                    <a href="#!" class="btn btn-1 order-btn">Order Online</a>
+                    <a href="#!" class="bar">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </ul>
+            </nav>
+        </div>
     </header>
     <!-- End header -->
 
@@ -37,7 +42,7 @@
     <main class="main">
 
         <!-- Start jumbotron -->
-        <div class="jumbotron">
+        <div class="jumbotron block">
             <div class="container">
                 <div class="image-container">
                     <div class="image" style="background-image: url(assets/images/jumbotron-bg-2.jpg);"></div>
@@ -56,7 +61,7 @@
         <!-- End jumbotron -->
 
         <!-- Start about-->
-        <div class="about">
+        <div class="about block">
             <div class="container">
                 <div class="about-title">
                     <div class="section-title">
@@ -89,21 +94,21 @@
                                 <div class="icon-container">
                                     <!-- <div class="icon"></div> -->
                                     <i class="fa-solid fa-earth-americas icon"></i>
-                                    <h4 class="title">Ethically Sourced</h4>
-                                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
-                                        distinctio molestias fugiat eos corporis?</p>
                                 </div>
+                                <h4 class="title">Ethically Sourced</h4>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
+                                    distinctio molestias fugiat eos corporis?</p>
                             </div>
                         </div>
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="icon-container">
                                     <!-- <div class="icon"></div> -->
-                                    <i class="fa-solid fa-fire icon"></i>
-                                    <h4 class="title">Expertily Roasted</h4>
-                                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
-                                        distinctio molestias fugiat eos corporis?</p>
                                 </div>
+                                <i class="fa-solid fa-fire icon"></i>
+                                <h4 class="title">Expertily Roasted</h4>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
+                                    distinctio molestias fugiat eos corporis?</p>
                             </div>
                         </div>
                         <div class="col-xl-4">
@@ -111,10 +116,10 @@
                                 <div class="icon-container">
                                     <!-- <div class="icon"></div> -->
                                     <i class="fa-solid fa-mug-saucer icon"></i>
-                                    <h4 class="title">Barista Crafted</h4>
-                                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
-                                        distinctio molestias fugiat eos corporis?</p>
                                 </div>
+                                <h4 class="title">Barista Crafted</h4>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum
+                                    distinctio molestias fugiat eos corporis?</p>
                             </div>
                         </div>
                     </div>
@@ -125,7 +130,7 @@
         <!-- End about -->
 
         <!-- Start menu -->
-        <div class="menu">
+        <div class="menu block">
             <div class="container">
                 <div class="menu-title">
                     <div class="section-title">
@@ -136,11 +141,11 @@
                     <p class="para">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
                 </div>
                 <div class="menu-item">
-                    <div class="row g-4">
+                    <div class="row g-xl-4 g-lg-0">
                         <div class="col-xl-6">
                             <div class="menu-item-left">
                                 <div class="card">
-                                    <div class="card-title">
+                                    <div class="menu__card-title">
                                         <!-- <div class="icon"></div> -->
                                         <i class="fa-solid fa-mug-saucer icon" icon></i>
                                         <h3 class="title">Espresso & coffee</h3>
@@ -178,10 +183,10 @@
                         </div>
                         <div class="col-xl-6">
                             <div class="menu-item-right">
-                                <div class="row g-4">
+                                <div class="row g-xl-4 g-lg-0">
                                     <div class="col-xl-12">
                                         <div class="card">
-                                            <div class="card-title">
+                                            <div class="menu__card-title">
                                                 <!-- <div class="icon"></div> -->
                                                 <i class="fa-solid fa-mug-hot icon"></i>
                                                 <h3 class="title">Espresso & coffee</h3>
@@ -204,7 +209,7 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="card">
-                                            <div class="card-title">
+                                            <div class="menu__card-title">
                                                 <!-- <div class="icon"></div> -->
                                                 <i class="fa-solid fa-cheese icon"></i>
                                                 <h3 class="title">Espresso & coffee</h3>
@@ -235,10 +240,10 @@
         <!-- End menu -->
 
         <!-- Start visit -->
-        <div class="visit">
+        <div class="visit block">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-6">
+                    <div class="col-xl-6 col-lg-6">
                         <div class="visit-title">
                             <div class="section-title">
                                 <h2 class="title">Visit Us</h2>
@@ -273,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-6 col-lg-6">
                         <div class="map-container">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115618.48873105505!2d121.45979001382258!3d25.09922853526546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ae50f43af1e9%3A0xadf18f29697c0a3c!2z5YyX5oqV5rqr5rOJ5Y2a54mp6aSo!5e0!3m2!1szh-TW!2stw!4v1767729654165!5m2!1szh-TW!2stw"
@@ -287,40 +292,43 @@
         <!-- End visit -->
 
         <!-- Start contact -->
-        <div class="contact">
+        <div class="contact block">
             <div class="container">
                 <div class="card">
                     <div class="row g-5">
-                        <div class="col-xl-6">
+                        <div class="col-xl-6 col-lg-6">
                             <div class="wrapper">
                                 <h2 class="title">Get in Touch</h2>
-                                <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, recusandae
+                                <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia,
+                                    recusandae
                                     maxime.</p>
                                 <form action="" method="get" class="contact-form">
                                     <div class="row gx-3">
                                         <div class="col-xl-6">
                                             <div class="form-item">
                                                 <label for="name">Name</label>
-                                                <input name="name" type="text" id="name" placeholder="John Doe" required>
+                                                <input name="name" type="text" id="name" placeholder="John Doe"
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-item">
                                                 <label for="email">Email</label>
-                                                <input name="email" type="email" id="email" placeholder="john@example.com"
-                                                    required>
+                                                <input name="email" type="email" id="email"
+                                                    placeholder="john@example.com" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-item user-message">
                                         <label for="massage">Massage</label>
-                                        <textarea name="massage" id="massage" placeholder="How can we help you?"></textarea>
+                                        <textarea name="massage" id="massage"
+                                            placeholder="How can we help you?"></textarea>
                                     </div>
                                     <input type="submit" class="btn btn-1 submit" value="Send Message">
                                 </form>
                             </div>
                         </div>
-                        <div class="col-xl-6">
+                        <div class="col-xl-6 col-lg-6">
                             <div class="image" style="background-image: url(assets/images/contact-1.jpg);"></div>
                         </div>
                     </div>
