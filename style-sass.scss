@@ -12,7 +12,7 @@
     }
 }
 @mixin rwd-sm{
-    @media(max-width:374px){
+    @media(max-width:575px){
         @content;
     }
 }
@@ -30,53 +30,37 @@ $white: #fefefe;
     font-weight: 600;
     line-height: 56px;
     color: $white;
-}
-%cardTitle{
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 0.02em;
-    color: $white;
+
+    @include rwd-md(){
+        font-size: 32px;
+        line-height: 48px;
+    }
 }
 %lgPara{
     font-size: 20px;
     font-weight: 200;
     line-height: 30px;
     letter-spacing: 0.02em;
-    color: color.adjust($white, $lightness: -10%)
+    color: color.adjust($white, $lightness: -10%);
+    
+    @include rwd-md(){
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 %smPara{
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.02em;
     color: $textMuted;
-}
-%smButton{
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    color: #000;
-}
-%lgButton{
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-    color: #000;
+    
+    @include rwd-md(){
+        font-size: 14px;
+        line-height: 24px;
+    }
 }
 
 // Component
-%card{
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    background-color: $lightDark;
-    border: 1px solid rgba($lightDark, 0.3);
-    border-radius: 8px;
-
-    @include rwd-lg(){
-        padding: 24px;
-    }
-}
 @mixin card{
     padding: 32px;
     display: flex;
@@ -84,11 +68,23 @@ $white: #fefefe;
     background-color: $lightDark;
     border: 1px solid rgba($lightDark, 0.3);
     border-radius: 8px;
-
+    
+    .title{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 40px;
+        letter-spacing: 0.02em;
+        color: $white;
+        display: inline-block;
+    }
     @include rwd-lg(){
         padding: 24px;
     }
 }
+%card{
+    @include card();
+}
+
 
 // utilities
 @mixin absoluteCenter{
@@ -124,7 +120,10 @@ a{
 
 // btn
 .btn{
-    @extend %smButton;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    white-space: nowrap;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -144,8 +143,21 @@ a{
         color: $white;
     }
     &.btn-lg{
-        @extend %lgButton;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
         padding: 10px 24px;
+    }
+
+    @include rwd-md(){
+        padding: 4px 16px;
+        font-size: 14px;
+
+        &.btn-lg{
+            padding: 8px 16px;
+            font-size: 16px;
+            line-height: 20px;
+        }
     }
 }
 .btn-group-center{
@@ -182,7 +194,9 @@ a{
     @include rwd-lg(){
         margin-bottom: 60px;
     }
-
+    @include rwd-md(){
+        margin-bottom: 40px;
+    }
     .section-title{
         width: 100%;
         display: flex;
@@ -216,13 +230,19 @@ a{
         width: 100%;
         max-width: 1180px;
         height: 72px;
+        padding-left: 32px;
+        padding-right: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        @include rwd-md(){
+            height: 64px;
+        }
     
         .brand{
-            height: 100%;
+            // height: 100%;
             display: flex;
             align-items: center;
     
@@ -232,12 +252,22 @@ a{
                 background-color: $orange;
                 border-radius: 4px;
                 margin-right: 16px;
+
+                @include rwd-md(){
+                    width: 28px;
+                    height: 32px;
+                    margin-right: 12px;
+                }
             }
             .brand-name{
                 font-size: 24px;
                 font-weight: 600;
-                line-height: 60px;
+                // line-height: 60px;
                 color: $white;
+
+                @include rwd-md(){
+                    font-size: 22px;
+                }
             }
         }
         .navbar-nav{
@@ -286,7 +316,8 @@ a{
             padding-top: 60%;
 
             @include rwd-md(){
-                padding-top: 80%;
+                padding-top: 60%;
+                border-radius: 8px;
             }
         }
     }
@@ -296,23 +327,40 @@ a{
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        .title{
+            font-size: 60px;
+            font-weight: 800;
+            line-height: 100px;
+            letter-spacing: -0.02em;
+            color: $white;
+
+            @include rwd-md(){
+                font-size: 42px;
+                line-height: 80px;
+            }
+        }
+        .para{
+            @extend %lgPara;
+            text-justify: auto;
+            text-align: center;
+            margin-bottom: 48px;
+            max-width: 800px;
+            
+            @include rwd-lg(){
+                max-width: 600px;
+            }
+            @include rwd-md(){
+                max-width: 400px;
+                margin-bottom: 28px;
+            }
+        }
     }
-    .title{
-        font-size: 60px;
-        font-weight: 800;
-        line-height: 100px;
-        letter-spacing: -0.02em;
-        color: $white;
-    }
-    .para{
-        @extend %lgPara;
-        text-justify: auto;
-        text-align: center;
-        margin-bottom: 48px;
-        max-width: 800px;
-        
-        @include rwd-lg(){
-            max-width: 600px;
+    .btn{
+        width: 140px;
+
+        @include rwd-md(){
+            width: 120px;
         }
     }
 }
@@ -322,6 +370,10 @@ a{
     .about-title{
         .section-title{
             margin-bottom: 40px;
+
+            @include rwd-md(){
+                margin-bottom: 24px;
+            }
         }
     }
     .about-content{
@@ -343,12 +395,22 @@ a{
                 letter-spacing: 0.02em;
                 color: $white;
                 margin-bottom: 8px;
+
+                @include rwd-md(){
+                    font-size: 32px;
+                    line-height: 48px;
+                }
             }
             .para{
                 font-size: 20px;
                 line-height: 40px;
                 letter-spacing: 0.02em;
                 color: $textMuted;
+
+                @include rwd-md(){
+                    font-size: 18px;
+                    line-height: 28px;
+                }
             }
         }
     }
@@ -367,7 +429,6 @@ a{
                 color: #ec7f13;
             }
             .title{
-                @extend %cardTitle;
                 margin-top: 16px;
             }
             .para{
@@ -390,6 +451,15 @@ a{
                     margin-top: 8px;
                 }
             }
+            @include rwd-md(){
+                .icon{
+                    font-size: 24px;
+                    margin-right: 8px;
+                }
+                .para{
+                    margin-top: 0;
+                }
+            }
         }
     }
 }
@@ -406,6 +476,9 @@ a{
     .menu-content{
         margin-bottom: 32px;
 
+        @include rwd-md(){
+            margin-bottom: 0;
+        }
     }
     .para{
         @extend %smPara;
@@ -429,9 +502,6 @@ a{
                     font-size: 20px;
                     color: $orange;
                 }
-                .title{
-                    @extend %cardTitle;
-                }
 
                 @include rwd-lg(){
                     border-bottom: 1px solid rgba($white, 0.2);
@@ -450,12 +520,16 @@ a{
                     margin-top: 24px;
                     flex-direction: row;
                 }
+                @include rwd-md(){
+                    margin-top: 16px;
+                }
                 &:last-child{
                     border: 0;
                 }
                 .item-name{
                     color: $white;
                     font-size: 18px;
+                    line-height: 24px;
                     letter-spacing: 0.02em;
                 }
                 .item-desc{
@@ -505,7 +579,11 @@ a{
                 color: $orange;
             }
             .title{
-                @extend %cardTitle;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 40px;
+                letter-spacing: 0.02em;
+                color: $white;
             }
             .info{
                 @extend %smPara;
@@ -538,7 +616,7 @@ a{
         @extend %card;
         padding: 32px 48px;
 
-        .title{
+        .contact__title{
             @extend %sectionTitle;
         }
         .para{
@@ -626,6 +704,10 @@ a{
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+
+            @include rwd-md(){
+                min-height: 320px;
+            }
         }
     }
 }
@@ -641,27 +723,28 @@ a{
     align-items: center;
 
     .brand{
-        height: 100%;
+        // height: 100%;
         display: flex;
         align-items: center;
-    }
-    .icon{
-        width: 28px;
-        height: 32px;
-        background-color: $orange;
-        border-radius: 4px;
-        margin-right: 16px;
-    }
-    .brand-name{
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 60px;
-        color: $white;
+
+        .icon{
+            width: 28px;
+            height: 32px;
+            background-color: $orange;
+            border-radius: 4px;
+            margin-right: 16px;
+        }
+        .brand-name{
+            font-size: 20px;
+            font-weight: 600;
+            // line-height: 60px;
+            color: $white;
+        }
     }
     .social-media{
         display: flex;
         align-items: center;
-
+        
         .social-media-list{
             .link{
                 color: $textMuted;
@@ -675,5 +758,13 @@ a{
         color: $textMuted;
         font-size: 14px;
         letter-spacing: 0.02em;
+    }
+
+    @include rwd-md(){
+        flex-direction: column;
+        justify-content: space-around;
+        height: 160px;
+        padding-top: 20px;
+        padding-bottom: 16px;
     }
 }

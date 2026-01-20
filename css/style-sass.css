@@ -1,24 +1,28 @@
-.contact .card .title, .block .section-title .title {
+.contact .card .contact__title, .block .section-title .title {
   font-size: 36px;
   font-weight: 600;
   line-height: 56px;
   color: #fefefe;
 }
-
-.visit .visit-info .info-item .title, .menu .menu-item .card .menu__card-title .title, .about .about-item .card .title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 40px;
-  letter-spacing: 0.02em;
-  color: #fefefe;
+@media (max-width: 767px) {
+  .contact .card .contact__title, .block .section-title .title {
+    font-size: 32px;
+    line-height: 48px;
+  }
 }
 
-.jumbotron .para {
+.jumbotron .jumbotron-preview .para {
   font-size: 20px;
   font-weight: 200;
   line-height: 30px;
   letter-spacing: 0.02em;
   color: rgb(228.5, 228.5, 228.5);
+}
+@media (max-width: 767px) {
+  .jumbotron .jumbotron-preview .para {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .contact .card .para, .visit .visit-info .info-item .info, .menu .menu-item .card .card-item .item-desc, .menu .para, .about .about-item .card .para {
@@ -27,19 +31,11 @@
   letter-spacing: 0.02em;
   color: #b9ab9d;
 }
-
-.btn {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  color: #000;
-}
-
-.btn.btn-lg {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 24px;
-  color: #000;
+@media (max-width: 767px) {
+  .contact .card .para, .visit .visit-info .info-item .info, .menu .menu-item .card .card-item .item-desc, .menu .para, .about .about-item .card .para {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .contact .card, .menu .menu-item .card, .about .about-item .card {
@@ -49,6 +45,14 @@
   background-color: #2c2117;
   border: 1px solid rgba(44, 33, 23, 0.3);
   border-radius: 8px;
+}
+.contact .card .title, .menu .menu-item .card .title, .about .about-item .card .title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  color: #fefefe;
+  display: inline-block;
 }
 @media (max-width: 1199px) {
   .contact .card, .menu .menu-item .card, .about .about-item .card {
@@ -82,6 +86,10 @@ a {
 }
 
 .btn {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
   display: inline-block;
   vertical-align: top;
   text-align: center;
@@ -102,7 +110,21 @@ a {
   color: #fefefe;
 }
 .btn.btn-lg {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
   padding: 10px 24px;
+}
+@media (max-width: 767px) {
+  .btn {
+    padding: 4px 16px;
+    font-size: 14px;
+  }
+  .btn.btn-lg {
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .btn-group-center {
@@ -143,6 +165,11 @@ a {
     margin-bottom: 60px;
   }
 }
+@media (max-width: 767px) {
+  .block {
+    margin-bottom: 40px;
+  }
+}
 .block .section-title {
   width: 100%;
   display: flex;
@@ -171,13 +198,19 @@ a {
   width: 100%;
   max-width: 1180px;
   height: 72px;
+  padding-left: 32px;
+  padding-right: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 767px) {
+  .header .navbar {
+    height: 64px;
+  }
+}
 .header .navbar .brand {
-  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -188,11 +221,22 @@ a {
   border-radius: 4px;
   margin-right: 16px;
 }
+@media (max-width: 767px) {
+  .header .navbar .brand .icon {
+    width: 28px;
+    height: 32px;
+    margin-right: 12px;
+  }
+}
 .header .navbar .brand .brand-name {
   font-size: 24px;
   font-weight: 600;
-  line-height: 60px;
   color: #fefefe;
+}
+@media (max-width: 767px) {
+  .header .navbar .brand .brand-name {
+    font-size: 22px;
+  }
 }
 .header .navbar .navbar-nav {
   height: 100%;
@@ -242,7 +286,8 @@ a {
 }
 @media (max-width: 767px) {
   .jumbotron .image-container:before {
-    padding-top: 80%;
+    padding-top: 60%;
+    border-radius: 8px;
   }
 }
 .jumbotron .jumbotron-preview {
@@ -256,28 +301,53 @@ a {
   flex-direction: column;
   justify-content: center;
 }
-.jumbotron .title {
+.jumbotron .jumbotron-preview .title {
   font-size: 60px;
   font-weight: 800;
   line-height: 100px;
   letter-spacing: -0.02em;
   color: #fefefe;
 }
-.jumbotron .para {
+@media (max-width: 767px) {
+  .jumbotron .jumbotron-preview .title {
+    font-size: 42px;
+    line-height: 80px;
+  }
+}
+.jumbotron .jumbotron-preview .para {
   text-justify: auto;
   text-align: center;
   margin-bottom: 48px;
   max-width: 800px;
 }
 @media (max-width: 1199px) {
-  .jumbotron .para {
+  .jumbotron .jumbotron-preview .para {
     max-width: 600px;
+  }
+}
+@media (max-width: 767px) {
+  .jumbotron .jumbotron-preview .para {
+    max-width: 400px;
+    margin-bottom: 28px;
+  }
+}
+.jumbotron .btn {
+  width: 140px;
+}
+@media (max-width: 767px) {
+  .jumbotron .btn {
+    width: 120px;
   }
 }
 
 /* about */
 .about .about-title .section-title {
   margin-bottom: 40px;
+}
+@media (max-width: 767px) {
+  .about .about-title .section-title {
+    margin-bottom: 24px;
+  }
 }
 .about .about-content .image-container {
   border-radius: 12px;
@@ -299,11 +369,23 @@ a {
   color: #fefefe;
   margin-bottom: 8px;
 }
+@media (max-width: 767px) {
+  .about .about-content .about-preview .title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
 .about .about-content .about-preview .para {
   font-size: 20px;
   line-height: 40px;
   letter-spacing: 0.02em;
   color: #b9ab9d;
+}
+@media (max-width: 767px) {
+  .about .about-content .about-preview .para {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 .about .about-item {
   margin-top: 80px;
@@ -337,6 +419,15 @@ a {
     margin-top: 8px;
   }
 }
+@media (max-width: 767px) {
+  .about .about-item .card .icon {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  .about .about-item .card .para {
+    margin-top: 0;
+  }
+}
 
 /* menu */
 .menu .menu-title {
@@ -347,6 +438,11 @@ a {
 }
 .menu .menu-content {
   margin-bottom: 32px;
+}
+@media (max-width: 767px) {
+  .menu .menu-content {
+    margin-bottom: 0;
+  }
 }
 .menu .para {
   text-align: center;
@@ -390,10 +486,23 @@ a {
     margin-top: 24px;
     flex-direction: row;
   }
+  .menu .menu-item .card .card-item .title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0.02em;
+    color: #fefefe;
+    display: inline-block;
+  }
 }
 @media (max-width: 1199px) and (max-width: 1199px) {
   .menu .menu-item .card .card-item {
     padding: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .menu .menu-item .card .card-item {
+    margin-top: 16px;
   }
 }
 .menu .menu-item .card .card-item:last-child {
@@ -402,6 +511,7 @@ a {
 .menu .menu-item .card .card-item .item-name {
   color: #fefefe;
   font-size: 18px;
+  line-height: 24px;
   letter-spacing: 0.02em;
 }
 .menu .menu-item .card .card-item .item-price {
@@ -437,6 +547,13 @@ a {
   margin-right: 16px;
   font-size: 24px;
   color: #ec7f13;
+}
+.visit .visit-info .info-item .title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  color: #fefefe;
 }
 .visit .visit-info .info-item .info {
   display: flex;
@@ -540,6 +657,11 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media (max-width: 767px) {
+  .contact .card .image {
+    min-height: 320px;
+  }
+}
 
 /* footer */
 .footer {
@@ -552,21 +674,19 @@ a {
   align-items: center;
 }
 .footer .brand {
-  height: 100%;
   display: flex;
   align-items: center;
 }
-.footer .icon {
+.footer .brand .icon {
   width: 28px;
   height: 32px;
   background-color: #ec7f13;
   border-radius: 4px;
   margin-right: 16px;
 }
-.footer .brand-name {
+.footer .brand .brand-name {
   font-size: 20px;
   font-weight: 600;
-  line-height: 60px;
   color: #fefefe;
 }
 .footer .social-media {
@@ -583,4 +703,13 @@ a {
   color: #b9ab9d;
   font-size: 14px;
   letter-spacing: 0.02em;
+}
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 160px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
 }/*# sourceMappingURL=style-sass.css.map */
