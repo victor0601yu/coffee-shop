@@ -1,8 +1,13 @@
 @use "sass:color";
 
 //rwd
-@mixin rwd-lg{
+@mixin rwd-xl{
     @media(max-width: 1199px){
+        @content;
+    }
+}
+@mixin rwd-lg{
+    @media(max-width: 991px){
         @content;
     }
 }
@@ -13,6 +18,11 @@
 }
 @mixin rwd-sm{
     @media(max-width:575px){
+        @content;
+    }
+}
+@mixin rwd-xs{
+    @media(max-width:425px){
         @content;
     }
 }
@@ -69,6 +79,9 @@ $white: #fefefe;
     @include rwd-lg(){
         padding: 24px;
     }
+    @include rwd-xs(){
+        padding: 16px;
+    }
 }
 %card{
     @include card();
@@ -76,12 +89,18 @@ $white: #fefefe;
 
 
 // utilities
-@mixin absoluteCenter{
+@mixin absoluteCenter-container{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+@mixin absoluteCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -174,7 +193,7 @@ a{
         padding-top: 75%;
     }
     .image{
-        @include absoluteCenter();
+        @include absoluteCenter-container();
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -230,36 +249,62 @@ a{
 
 /* navbar */
 .header{
+    display: flex;
+    align-items: center;
     margin-bottom:60px;
     border-bottom: 2px solid $lightDark;
     
     @include rwd-lg(){
         margin-bottom: 40px;
-        margin-top: 10px;
+        margin-top: 4px;
         // padding: 0 40px;
+    }
+    @include rwd-xs(){
+        height: 60px;
+        margin-bottom: 8px;
     }
     .navbar{
         width: 100%;
         height: 72px;
         padding-left: 32px;
-        padding-right: 20px;
+        padding-right: 28px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
 
+        @include rwd-lg(){
+            padding-right: 20px;
+        }
         @include rwd-md(){
             height: 64px;
+            padding-right: 16px;
         }
         @include rwd-sm(){
             padding-left: 16px;
-            padding-right: 4px;
+            padding-right: 16px;
+        }
+        @include rwd-xs(){
+            flex-wrap: wrap;
+            padding-right: 8px;
+            height: 44px;
         }
     
         .brand{
             // height: 100%;
             display: flex;
             align-items: center;
+            flex-grow: 1;
+
+            @include rwd-md(){
+                @include absoluteCenter();
+                justify-content: center;
+                width: 100%;
+                max-width: 208px;
+            }
+            @include rwd-xs(){
+                max-width: 160px;
+            }
     
             .icon{
                 width: 32px;
@@ -273,15 +318,25 @@ a{
                     height: 32px;
                     margin-right: 12px;
                 }
+                @include rwd-xs(){
+                    width: 16px;
+                    height: 18px;
+                    margin-right: 4px;
+                }
             }
             .brand-name{
                 font-size: 24px;
                 font-weight: 600;
-                line-height: 40px;
+                line-height: 38px;
+                padding-top: 4px;
                 color: $white;
 
                 @include rwd-md(){
                     font-size: 22px;
+                }
+                @include rwd-xs(){
+                    font-size: 18px;
+                    padding-top: 2px;
                 }
             }
         }
@@ -289,6 +344,10 @@ a{
             height: 100%;
             display: flex;
             align-items: center;
+
+            @include rwd-md(){
+                order: -1;
+            }
     
             .nav-link{
                 color: color.adjust($white, $lightness: -10%);
@@ -303,22 +362,74 @@ a{
             }
             .order-btn{
                 margin-left: 16px;
+
                 @include rwd-lg(){
                     margin-left: 0;
                 }
-            }
-            .bar{
-                display: none;
-                font-size: 32px;
-                margin-left: 8px;
-                padding: 16px 12px;
-    
-                @include rwd-lg(){
-                    display: block;
-                }
                 @include rwd-sm(){
-                    padding: 12px 8px;
-                    margin-left: 4px;
+                    width: 56px;
+                    padding: 2px 0;
+                    line-height: 16px;
+                    white-space: wrap;
+                }
+                @include rwd-xs(){
+                    width: 48px;
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+            }
+        }
+        .bar{
+            // border: 1px solid #ccc;
+            display: none;
+            width: 48px;
+            height: 48px;
+            margin-left: 12px;
+
+            span{
+                width: 36px;
+                height: 2px;
+                background-color: $white;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &:nth-child(1){
+                    top: 25%;
+                }
+                &:nth-child(2){
+                    top: 50%;
+                }
+                &:nth-child(3){
+                    top: 75%;
+                }
+            }
+
+            @include rwd-lg(){
+                display: block;
+            }
+            @include rwd-md(){
+                width: 44px;
+                height: 44px;
+                margin-left: 0;
+
+                span{
+                    width: 32px;
+                }
+            }
+            @include rwd-xs(){
+                span{
+                    width: 28px;
+
+                    &:nth-child(1){
+                        top: 30%;
+                    }
+                    &:nth-child(2){
+                        top: 50%;
+                    }
+                    &:nth-child(3){
+                        top: 70%;
+                    }
                 }
             }
         }
@@ -341,10 +452,13 @@ a{
             @include rwd-sm(){
                 padding-top: 80%;
             }
+            @include rwd-xs(){
+                padding-top: 120%;
+            }
         }
     }
     .jumbotron-preview{
-        @include absoluteCenter();
+        @include absoluteCenter-container();
         align-items: center;
         display: flex;
         flex-direction: column;
@@ -367,9 +481,11 @@ a{
                 line-height: 80px;
             }
             @include rwd-sm(){
-                // font-size: 36px;
                 line-height: 48px;
                 margin-bottom: 16px
+            }
+            @include rwd-xs(){
+                margin-bottom: 24px
             }
         }
         .para{
@@ -403,6 +519,10 @@ a{
 
 /* about */
 .about{
+
+    @include rwd-sm(){
+        margin-top: 36px;
+    }
     .about-title{
         .section-title{
             margin-bottom: 40px;
@@ -420,11 +540,8 @@ a{
             text-align: left;
             margin-top: 80px;
 
-            @include rwd-lg(){
+            @include rwd-xl(){
                 margin-top: 0px;
-            }
-            @include rwd-md(){
-                // text-align: center;
             }
 
             .title{
@@ -460,7 +577,7 @@ a{
     .about-item{
         margin-top: 80px;
 
-        @include rwd-lg(){
+        @include rwd-xl(){
             margin-top: 40px;
         }
 
@@ -549,6 +666,14 @@ a{
                 @include rwd-lg(){
                     border-bottom: 1px solid rgba($white, 0.2);
                 }
+                @include rwd-xs(){
+                    flex-direction: column;
+                    justify-content: center;
+                    .icon{
+                        margin-right: 0;
+                        font-size: 24px;
+                    }
+                }
             }
             .card-item{
                 margin-top: 32px;
@@ -565,18 +690,30 @@ a{
                 }
                 @include rwd-md(){
                     margin-top: 16px;
+                    padding: 12px;
+                }
+                @include rwd-xs(){
+                    flex-direction: column;
                 }
                 &:last-child{
                     border: 0;
                 }
-                .item-name{
-                    color: $white;
-                    font-size: 18px;
-                    line-height: 24px;
-                    letter-spacing: 0.02em;
-                }
-                .item-desc{
-                    @extend %smPara;
+                .item-preview{
+                    margin-right: 4px;
+
+                    .item-name{
+                        color: $white;
+                        font-size: 18px;
+                        line-height: 24px;
+                        letter-spacing: 0.02em;
+                    }
+                    .item-desc{
+                        @extend %smPara;
+                    }
+                    @include rwd-xs(){
+                        margin-right: 0;
+                        margin-bottom: 4px;
+                    }
                 }
                 .item-price{
                     color: $orange;
@@ -584,6 +721,11 @@ a{
                     font-weight: 600;
                     line-height: 24px;
                     letter-spacing: 0.02em;
+
+                    @include rwd-xs(){
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
                 }
 
             }
@@ -607,6 +749,10 @@ a{
 .visit{
     .visit-title{
         margin-bottom: 32px;
+
+        @include rwd-sm(){
+            margin-bottom: 24px;
+        }
     }
     .visit-info{
         .info-item{
@@ -614,12 +760,20 @@ a{
             display: flex;
             margin-bottom: 32px;
 
+            @include rwd-xs(){
+                margin-bottom: 20px;
+            }
+
             .icon{
                 margin-top: 10px;
                 margin-right: 16px;
-
                 font-size: 24px;
                 color: $orange;
+
+                @include rwd-xs(){
+                    margin-top: 8px;
+                    font-size: 20px;
+                }
             }
             .title{
                 font-size: 20px;
@@ -627,6 +781,10 @@ a{
                 line-height: 40px;
                 letter-spacing: 0.02em;
                 color: $white;
+
+                @include rwd-xs(){
+                    line-height: 32px;
+                }
             }
             .info{
                 @extend %smPara;
@@ -655,12 +813,19 @@ a{
 .contact{
     overflow: hidden;
 
+    @include rwd-sm(){
+        margin-top: 32px;
+    }
+
     .card{
         @extend %card;
         padding: 32px 48px;
 
         @include rwd-md(){
             padding: 24px 32px;
+        }
+        @include rwd-xs(){
+            padding: 24px;
         }
 
         .contact__title{
@@ -764,6 +929,9 @@ a{
             @include rwd-md(){
                 min-height: 320px;
             }
+            @include rwd-xs(){
+                min-height: 240px;
+            }
         }
     }
 }
@@ -780,6 +948,7 @@ a{
 
     .brand{
         // height: 100%;
+        padding-top: 4px;
         display: flex;
         align-items: center;
 
@@ -820,7 +989,7 @@ a{
         flex-direction: column;
         justify-content: space-around;
         height: 160px;
-        padding-top: 20px;
+        padding-top: 16px;
         padding-bottom: 16px;
     }
 }
