@@ -343,6 +343,7 @@ a {
 				justify-content: center;
 				width: 100%;
 				max-width: 208px;
+				z-index: 1;
 			}
 			@include rwd-xs() {
 				max-width: 160px;

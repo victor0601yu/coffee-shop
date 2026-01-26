@@ -11,8 +11,13 @@ $(function() {
         speedAsDuration: true
     });
 
+    $('.navbar .nav-btn').on('click', function() {
+        $('.navbar .navbar-nav').addClass('active');
+    });
     $('.navbar a').on('click', function() {
-        $('.navbar .navbar-nav').toggleClass('active');
+        if($(this).is('.nav-link, .close-btn')){
+            $('.navbar .navbar-nav').removeClass('active');
+        }
     });
 
 })

@@ -311,6 +311,7 @@ a {
     justify-content: center;
     width: 100%;
     max-width: 208px;
+    z-index: 1;
   }
 }
 @media (max-width: 425px) {
