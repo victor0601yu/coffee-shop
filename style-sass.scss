@@ -55,7 +55,7 @@ $white: #fefefe;
 
 	@include rwd-md() {
 		font-size: 14px;
-		line-height: 24px;
+		line-height: 20px;
 	}
 }
 
@@ -907,9 +907,13 @@ a {
 						font-size: 18px;
 						line-height: 24px;
 						letter-spacing: 0.02rem;
+						@include rwd-xs() {
+							text-align: center;
+						}
 					}
 					.item-desc {
 						@extend %smPara;
+						text-align: center;
 					}
 					@include rwd-xs() {
 						margin-right: 0;
