@@ -913,7 +913,10 @@ a {
 					}
 					.item-desc {
 						@extend %smPara;
-						text-align: center;
+						text-align: left;
+						@include rwd-xs() {
+							text-align: center;
+						}
 					}
 					@include rwd-xs() {
 						margin-right: 0;
@@ -970,6 +973,9 @@ a {
 					&:last-child {
 						padding-bottom: 12px;
 					}
+				}
+				@include rwd-sm() {
+					flex-wrap: nowrap;
 				}
 				@include rwd-xs() {
 					flex-direction: column;
