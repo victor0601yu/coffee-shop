@@ -12,10 +12,10 @@
 - **HTML5**
 - **SCSS**（編譯後輸出 `css/style-sass.css`）
 - **Bootstrap 5 Grid**（`assets/vender/bootstrap-5.3.8/`）
-- **Normalize.css**
 - **Font Awesome**（CDN）
+- **jQuery**
 
-## 專案結構（重點）
+## 專案結構
 
 - `index.html`：主頁面
 - `style-sass.scss`：主要樣式與 RWD 設定
@@ -26,7 +26,6 @@
 ## 開發與預覽
 
 - 用瀏覽器開啟 `index.html` 即可預覽。
-``
 
 ## 版面區塊
 
@@ -60,7 +59,3 @@
 - 卡片與 menu item：hover 時抬升、背景與文字顏色改變，menu 之間有固定分隔線。
 - 圖片容器：hover 時圖片輕微放大。
 - Visit / Contact / Footer 等區塊亦有基本 hover 效果，增加互動感。
-
-### 已知限制
-
-- 聯絡表單目前僅為前端展示，未串接實際後端 API。
