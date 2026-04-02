@@ -1,61 +1,59 @@
-# coffee-shop
+# ☕ The Daily Grind - 咖啡店形象網站 (練習專案)
 
-- **Demo**: https://victor0601yu.github.io/coffee-shop/
+[![Demo](https://img.shields.io/badge/Demo-Live_View-success?style=for-the-badge&logo=github)](https://victor0601yu.github.io/coffee-shop/)
 
-## 專案簡介
+> **聲明**：這是一個用於網頁開發練習的前端作品（Side Project），非實際營運的真實店家。
 
-- **名稱**：咖啡店單頁式網站
-- **用途**：練習切版、RWD 與互動效果（hover 動畫等）
+這是一個專為虛構的「The Daily Grind」咖啡店設計的響應式單頁網站（Landing Page）。網站展示了咖啡店的品牌故事、精選菜單、店面資訊以及聯絡方式，主要用於展示前端切版與互動設計的練習成果。
 
-## 使用技術
+🔗 **[點擊這裡查看線上 Demo](https://victor0601yu.github.io/coffee-shop/)**
 
-- **HTML5**
-- **SCSS**（編譯後輸出 `css/style-sass.css`）
-- **Bootstrap 5 Grid**（`assets/vender/bootstrap-5.3.8/`）
-- **Font Awesome**（CDN）
-- **jQuery**
+## ✨ 網站特色 (Features)
 
-## 專案結構
+*   **📱 響應式網頁設計 (RWD)**：完美支援桌機、平板與手機等不同尺寸的螢幕，確保在各裝置上皆有最佳的瀏覽體驗。
+*   **📜 平滑滾動與導覽 (Smooth Scrolling)**：點擊導覽列選單時，畫面會平滑地滾動至對應的頁面區塊。
+*   **📍 滾動監聽 (ScrollSpy)**：隨著頁面往下滾動，上方導覽列會自動標亮目前瀏覽的區塊位置。
+*   **🗺️ 地圖整合**：嵌入互動式的 Google Maps 區塊，方便顧客查看實體店面的確切位置。
+*   **✉️ 聯絡表單**：提供乾淨簡潔的聯絡表單介面。
 
-- `index.html`：主頁面
-- `style-sass.scss`：主要樣式與 RWD 設定
-- `css/style-sass.css`：由 SCSS 編譯出的 CSS
-- `assets/images/`：圖片資源（jumbotron、about、contact 等）
-- `assets/vender/`：第三方 CSS（Bootstrap grid、Normalize）
+## 🛠️ 使用技術 (Technologies Used)
 
-## 開發與預覽
+### 前端核心
+*   **HTML5**：語意化的網頁架構。
+*   **CSS3 / SCSS**：使用 Sass 預處理器進行樣式撰寫與變數管理，提升程式碼的可維護性與擴充性。
+*   **JavaScript (ES6+)**：處理網頁的各種互動效果（例如手機版漢堡選單切換）。
 
-- 用瀏覽器開啟 `index.html` 即可預覽。
+### 框架與工具庫 (Libraries)
+*   **Bootstrap Grid (v5.3.8)**：輕量引入 Bootstrap 的網格系統 (Grid System) 以加快多螢幕排版開發。
+*   **jQuery (v3.7.1)**：簡化 DOM 的選取操作與事件處理。
+*   **FontAwesome**：引入高品質的社群平台與功能性 Icons。
+*   **Gumshoe**：實現輕量化的 ScrollSpy (滾動監聽) 功能。
+*   **Smooth Scroll**：提供錨點連結的平滑滾動視覺效果。
+*   **Normalize.css**：標準化並重置各瀏覽器的預設樣式差異。
 
-## 版面區塊
+## 📂 專案結構 (Directory Structure)
 
-- **Header**：導覽列、品牌名稱、Order 按鈕
-- **Jumbotron**：主視覺、標題、描述與 CTA
-- **About**：品牌介紹與特色卡片
-- **Menu**：咖啡與餐點列表（含 hover 動畫與分隔線）
-- **Visit**：地址、營業時間、電話與 Google Map
-- **Contact**：聯絡表單（Name / Email / Message）
-- **Footer**：品牌、社群連結與版權資訊
+```text
+coffee-shop/
+├── assets/          # 靜態資源 (圖片集、第三方 CSS 等)
+├── css/             # 編譯後輸出的 CSS 檔案
+├── js/              # 第三方 JS 工具庫及自訂 main.js
+├── README.md        # 專案說明文件
+├── index.html       # 網站首頁
+└── style-sass.scss  # SCSS 主要的入口檔案
+```
 
-## 自訂方向
+## 🚀 如何在本地端運行 (Local Setup)
 
-- 在 `style-sass.scss` 中可調整色系、斷點與動畫。
-- 在 `index.html` 中可修改文案、菜單內容與圖片路徑。
+1. **複製此專案到本地端** 
+   ```bash
+   git clone https://github.com/victor0601yu/coffee-shop.git
+   ```
+2. **開啟網頁**
+   直接使用瀏覽器開啟 `index.html` 檔案，或是強烈建議使用 VS Code 的 [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 擴充功能以啟動本地開發伺服器。
+3. **編譯 SCSS (若需要修改樣式)**
+   如果您欲修改現有樣式，請編輯 `style-sass.scss` 檔案，並透過 SCSS 編譯工具（如 VS Code 的 `Live Sass Compiler` 擴充功能）將其編譯輸出覆蓋 `css/style-sass.css` 即可。
 
-### RWD 斷點說明
+---
 
-在 `style-sass.scss` 中使用自訂 mixin 控制斷點（以 max-width 為主）：
-
-- `@include rwd-xl`：1199px 以下
-- `@include rwd-lg`：991px 以下
-- `@include rwd-md`：767px 以下
-- `@include rwd-sm`：575px 以下
-- `@include rwd-xs`：425px 以下
-
-### 互動與動畫重點
-
-- 按鈕（`.btn`）：hover 有顏色變化、陰影與輕微位移。
-- 導覽列連結：底線滑入動畫、顏色變化。
-- 卡片與 menu item：hover 時抬升、背景與文字顏色改變，menu 之間有固定分隔線。
-- 圖片容器：hover 時圖片輕微放大。
-- Visit / Contact / Footer 等區塊亦有基本 hover 效果，增加互動感。
+> 註：圖文版權或任何相關素材僅作為個人作品展示與練習用途。
